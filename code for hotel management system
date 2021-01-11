@@ -1,0 +1,287 @@
+#include<stdio.h>
+#include<stdlib.h>
+struct node
+{
+int data;
+struct node *newnode;
+struct node *prev;
+struct node *next;
+}*head,*temp1,*temp,*temp2;
+void insertbeg()
+{int x;
+scanf("%d",&x);
+ struct node*newnode=(struct node *)malloc(sizeof(struct node));
+newnode->data=x;
+newnode->prev=NULL;
+if(head==NULL)
+{
+head=newnode;
+newnode->next=NULL;
+return;
+}
+else
+{
+head->prev=newnode;
+newnode->next=head;
+head=newnode;
+}
+}
+void create()
+{
+int x;
+    struct node*newnode=(struct node *)malloc(sizeof(struct node));
+    scanf("%d", &x);
+    newnode->data = x;   
+    newnode->prev = NULL;
+    newnode->next = NULL;
+    if(head==NULL)
+   {
+    head=newnode;
+    newnode->next=NULL;
+      return;
+   }   
+    else{
+    struct node*temp2=head;
+   while(temp2->next!=NULL)
+  {
+   temp2=temp2->next;
+  }
+   newnode->prev=temp2;
+   temp2->next=newnode;
+   }
+}
+void delete()
+{
+struct node*newnode=(struct node *)malloc(sizeof(struct node));
+if(head==NULL)
+{
+printf("Cannot delete");
+}
+else
+{
+head=head->next;
+free(head->prev);
+head->prev=NULL;
+}
+}
+void display()
+{
+struct node*newnode=(struct node *)malloc(sizeof(struct node));
+if(head==NULL)
+{
+printf("Nodes cannot be displayed");
+}
+else
+{
+struct node*temp=head;
+while(temp->next!=NULL)
+{
+printf("%d",temp->data);
+}
+temp=temp->next;
+}
+}
+void search()
+{int x,flag=0;scanf("%d", &x);
+struct node*newnode=(struct node *)malloc(sizeof(struct node));
+struct node*temp=head;
+if(temp==NULL)
+{
+printf("Error");
+}
+else{
+while(temp=NULL)
+{
+if(temp->data==x){
+printf("Element is found at position %d",flag+1);
+}
+else{
+temp=temp->next;
+flag++;
+}
+printf("Element is not found in list");
+}
+}
+}
+int main()
+{
+    int k;
+    head= NULL;
+    temp = temp1 = NULL;
+    printf("\n 1 - Create an element");   
+    printf("\n 2 - Insert at beginning");
+    printf("\n 3 - Display from beginning");
+    printf("\n 4 - Search for element");
+    printf("\n 5 - Exit");
+ 
+    while (1)
+    {
+        printf("\n Enter choice : ");
+        scanf("%d", &k);
+        switch (k)
+        {
+        case 1:
+            create();
+            break;
+        case 2:
+            insertbeg();
+            break;
+        case 3:
+            display();
+            break;
+        case 4:
+            delete();
+            break;
+        case 5:
+            search();
+            break;
+        case 8:
+            exit(0);
+        default:
+            printf("\n Wrong choice menu");
+        }
+    }
+}#include<stdio.h>
+#include<stdlib.h>
+struct node
+{
+int data;
+struct node *newnode;
+struct node *prev;
+struct node *next;
+}*head,*temp1,*temp,*temp2;
+void insertbeg()
+{int x;
+scanf("%d",&x);
+ struct node*newnode=(struct node *)malloc(sizeof(struct node));
+newnode->data=x;
+newnode->prev=NULL;
+if(head==NULL)
+{
+head=newnode;
+newnode->next=NULL;
+return;
+}
+else
+{
+head->prev=newnode;
+newnode->next=head;
+head=newnode;
+}
+}
+void create()
+{
+int x;
+    struct node*newnode=(struct node *)malloc(sizeof(struct node));
+    scanf("%d", &x);
+    newnode->data = x;   
+    newnode->prev = NULL;
+    newnode->next = NULL;
+    if(head==NULL)
+   {
+    head=newnode;
+    newnode->next=NULL;
+      return;
+   }   
+    else{
+    struct node*temp2=head;
+   while(temp2->next!=NULL)
+  {
+   temp2=temp2->next;
+  }
+   newnode->prev=temp2;
+   temp2->next=newnode;
+   }
+}
+void delete()
+{
+struct node*newnode=(struct node *)malloc(sizeof(struct node));
+if(head==NULL)
+{
+printf("Cannot delete");
+}
+else
+{
+head=head->next;
+free(head->prev);
+head->prev=NULL;
+}
+}
+void display()
+{
+struct node*newnode=(struct node *)malloc(sizeof(struct node));
+if(head==NULL)
+{
+printf("Nodes cannot be displayed");
+}
+else
+{
+struct node*temp=head;
+while(temp->next!=NULL)
+{
+printf("%d",temp->data);
+}
+temp=temp->next;
+}
+}
+void search()
+{int x,flag=0;scanf("%d", &x);
+struct node*newnode=(struct node *)malloc(sizeof(struct node));
+struct node*temp=head;
+if(temp==NULL)
+{
+printf("Error");
+}
+else{
+while(temp=NULL)
+{
+if(temp->data==x){
+printf("Element is found at position %d",flag+1);
+}
+else{
+temp=temp->next;
+flag++;
+}
+printf("Element is not found in list");
+}
+}
+}
+int main()
+{
+    int k;
+    head= NULL;
+    temp = temp1 = NULL;
+    printf("\n 1 - Create an element");   
+    printf("\n 2 - Insert at beginning");
+    printf("\n 3 - Display from beginning");
+    printf("\n 4 - Search for element");
+    printf("\n 5 - Exit");
+ 
+    while (1)
+    {
+        printf("\n Enter choice : ");
+        scanf("%d", &k);
+        switch (k)
+        {
+        case 1:
+            create();
+            break;
+        case 2:
+            insertbeg();
+            break;
+        case 3:
+            display();
+            break;
+        case 4:
+            delete();
+            break;
+        case 5:
+            search();
+            break;
+        case 8:
+            exit(0);
+        default:
+            printf("\n Wrong choice menu");
+        }
+    }
+}
